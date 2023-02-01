@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::permanentRedirect('/', '/welcome');
+Route::get('/welcome', function () {
+    return 'Dobro došli na Hello oglase';
 });

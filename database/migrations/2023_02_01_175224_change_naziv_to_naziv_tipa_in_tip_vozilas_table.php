@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tip_vozilas', function (Blueprint $table) {
-            $table->id();
-            $table->string('naziv')->unique();
-            $table->timestamps();
+        Schema::table('tip_vozilas', function (Blueprint $table) {
+            $table->renameColumn('naziv','naziv_tipa');
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tip_vozilas');
+        Schema::table('tip_vozilas', function (Blueprint $table) {
+            $table->renameColumn('naziv_tipa','naziv');
+        });
     }
 };
