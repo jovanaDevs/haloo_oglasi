@@ -17,7 +17,7 @@ class TipVozilaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'naziv_tipa'=>$this->faker->word
         ];
     }
 }

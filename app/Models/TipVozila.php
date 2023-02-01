@@ -10,7 +10,6 @@ class TipVozila extends Model
     use HasFactory;
 
     protected $fillable = [
-       'tip_vozila_id', 
         'naziv_tipa',
     ];
 
