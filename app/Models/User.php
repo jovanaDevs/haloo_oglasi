@@ -32,7 +32,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    public function oglas(){
+        return $this->hasMany(Oglas::class);
+    }
     /**
      * The attributes that should be cast.
      *
