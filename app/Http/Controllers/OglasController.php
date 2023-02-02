@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OglasCollection;
 use App\Http\Resources\OglasResource;
 use App\Models\Oglas;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class OglasController extends Controller
     public function index()
     {
         $oglasi=Oglas::all();
-        return OglasResource::collection($oglasi);
+        return new OglasCollection($oglasi);
     }
 
     /**
@@ -81,8 +82,10 @@ class OglasController extends Controller
      * @param  \App\Models\Oglas  $oglas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Oglas $oglas)
+    public function destroy($id)
     {
-        //
+        if(Oglas::where('id', $id)->delete())
+        return  response()->json("Uspesno obrisan oglas sa id: ".$id);
+        return  response()->json("Oglas sa id: ".$id." ne postoji u bazi!");
     }
 }

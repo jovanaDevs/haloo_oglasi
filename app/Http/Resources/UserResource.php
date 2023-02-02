@@ -4,24 +4,23 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class OglasResource extends JsonResource
+class UserResource extends JsonResource
 {
-    public static $wrap="oglas";
+    
     /**
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+    public static $wrap="user";
     public function toArray($request)
     {
-        return [
+        return [   
             'id'=>$this->resource->id,
-            'model'=>$this->resource->model,
-            'marka'=>$this->resource->marka,
-            'gorivo'=>$this->resource->gorivo,
-            'tip_vozila'=>$this->resource->tip_vozila,
-            'user'=>$this->resource->user,
+        
+        'name'=>$this->resource->name,
+        'email'=>$this->resource->email,
         ];
     }
 }

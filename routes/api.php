@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\OglasController;
+use App\Http\Controllers\TipVozilaOglasController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserOglasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('oglass',OglasController::class);
+
+Route::get("users/{id}",[UserController::class,'show']);
+Route::get("users",[UserController::class,'index']);
+Route::resource('oglass',OglasController::class)->only(['index','show','destroy']);
+Route::resource('users.oglass', UserOglasController::class)->only(['index']);
+Route::resource('tipvozilas.oglass', TipVozilaOglasController::class)->only(['index']);
