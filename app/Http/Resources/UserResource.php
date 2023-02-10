@@ -16,7 +16,9 @@ class UserResource extends JsonResource
     public static $wrap="user";
     public function toArray($request)
     {
-        return [   
+        if ($this->resource==null)
+        return ['message' => 'Ne postoji user sa tim id-jem '];
+        else return [   
             'id'=>$this->resource->id,
         
         'name'=>$this->resource->name,

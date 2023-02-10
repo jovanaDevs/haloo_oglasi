@@ -15,7 +15,9 @@ class OglasResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        if ($this->resource==null)
+        return ['message' => 'Ne postoji oglas sa tim id-jem '];
+        else return [
             'id'=>$this->resource->id,
             'model'=>$this->resource->model,
             'marka'=>$this->resource->marka,
