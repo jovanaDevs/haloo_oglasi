@@ -24,6 +24,7 @@ class OglasResource extends JsonResource
             'gorivo'=>$this->resource->gorivo,
             'tip_vozila'=>$this->resource->tip_vozila,
             'user'=>$this->resource->user,
+            'cena'=>$this->cena
         ];
     }
 }

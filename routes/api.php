@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     
     Route::get("users/{id}",[UserController::class,'show']);
     Route::get("users",[UserController::class,'index']);
-    Route::resource('oglass',OglasController::class)->only(['index','show','destroy']);
+    Route::resource('oglass',OglasController::class)->only(['index','show','destroy','store']);
     Route::resource('users.oglass', UserOglasController::class)->only(['index']);
     Route::resource('tipvozilas.oglass', TipVozilaOglasController::class)->only(['index']);
     Route::post('/logout', [AuthController::class, 'logout']);

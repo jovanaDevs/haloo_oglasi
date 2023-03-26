@@ -6,6 +6,8 @@ use App\Http\Resources\OglasCollection;
 use App\Http\Resources\OglasResource;
 use App\Models\Oglas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class OglasController extends Controller
 {
@@ -38,7 +40,27 @@ class OglasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validator=Validator::make($request->all(),[
+        'marka'=>'required|string',
+        'model'=>'required|string',
+        'godiste'=>'required',
+        'gorivo'=>'required|string',
+        'tip_vozila_id'=>'required',
+        'cena'=>'required'
+       ]);
+       if($validator->fails()){
+        return response()->json($validator->errors());
+       }
+       $oglas=Oglas::create([
+        'marka'=>$request->marka,
+        'model'=>$request->model,
+        'godiste'=>$request->godiste,
+        'gorivo'=>$request->gorivo,
+        'tip_vozila_id'=>$request->tip_vozila_id,
+        'user_id'=>Auth::user()->id,
+        'cena'=>$request->cena
+       ]);
+       return response()->json(['message' => 'Uspešno kreiran oglas!']);
     }
 
     /**

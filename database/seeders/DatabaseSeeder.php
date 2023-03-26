@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         User::factory(5)->create();
         
-       
         TipVozila::create(['naziv_tipa'=>'limuzina']);
         TipVozila::create(['naziv_tipa'=>'hecbek']);
         TipVozila::create(['naziv_tipa'=>'karavan']);
@@ -30,7 +29,8 @@ class DatabaseSeeder extends Seeder
         TipVozila::create(['naziv_tipa'=>'pickup']);
         TipVozila::create(['naziv_tipa'=>'kombi']);
         TipVozila::create(['naziv_tipa'=>'kamion']);
-        Oglas::factory(5)->create();
+        Oglas::factory(8)->create();
+        
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

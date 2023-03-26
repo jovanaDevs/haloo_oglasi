@@ -24,7 +24,8 @@ class OglasFactory extends Factory
             'godiste'=>$this->faker->year($max = 'now'),
             'gorivo'=>$this->faker->randomElement($array = array ('bezin','dizel','gas','elektricni')) ,
             'tip_vozila_id'=>TipVozila::factory(),
-            'user_id'=>User::factory()
+            'user_id'=>User::factory(),
+            'cena'=>$this->faker->numberBetween($min = 1000, $max = 50000)
         ];
     }
 }

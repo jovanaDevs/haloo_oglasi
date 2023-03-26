@@ -15,7 +15,8 @@ class Oglas extends Model
         'godiste',
         'gorivo',
         'tip_vozila_id',
-        'user_id'
+        'user_id',
+        'cena'
     ];
    
     public function tip_vozila(){
